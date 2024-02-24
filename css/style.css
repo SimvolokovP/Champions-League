@@ -1,0 +1,12 @@
+@import 'normalize.css';
+@import 'global.css';
+
+
+@import 'header.css';
+@import 'hero.css';
+@import 'video.css';
+@import 'matches.css';
+@import 'footer.css';
+
+@import 'btn.css';
+@import 'animations.css';

@@ -1,0 +1,19 @@
+.btn {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 14px;
+    padding: 4px 8px;
+    transition: border .3s ease-in-out;
+    text-transform: uppercase;
+}
+
+@media (hover:hover) {
+    .btn:hover {
+        border: 1px solid #000;
+    }
+}

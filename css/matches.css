@@ -1,0 +1,232 @@
+.matches {
+    padding: 20px 0;
+    background-color: #000;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.matches__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.matches__name {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.matches__title {
+    font-size: 45px;
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    background-color: #D6FF41;
+    color: #000;
+    padding: 4px 8px;
+}
+
+.matches__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    height: 538px;
+    overflow-y: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 60px;
+    text-align: center;
+}
+
+.match {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+    border: 3px solid #fff;
+    padding: 15px 30px;
+    transition: border-color .6s ease-in-out;
+}
+
+@media (hover:hover) {
+    .match:hover.match::before {
+        transform: scaleY(0);
+    }
+
+    .match:hover.match::after {
+        transform: scaleX(0);
+    }
+
+    .match:hover {
+        border-color: #D6FF41;
+    }
+
+    .match:hover.match * {
+        color: #D6FF41;
+    }
+
+    /* .match:hover .match-home__img img {
+        filter: grayscale(100%) sepia(100%) hue-rotate(50deg) brightness(100%) contrast(200%);
+    } */
+}
+
+.match * {
+    z-index: 5;
+    color: #fff;
+    transition: color .6s ease-in-out;
+}
+
+.match::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% - 20px);
+    background-color: #000;
+    transform: scaleY(1);
+    transition: transform .6s ease-in-out;
+}
+
+.match::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    height: calc(100% + 20px);
+    width: calc(100% - 20px);
+    background-color: #000;
+    transform: scaleX(1);
+    transition: transform .6s ease-in-out;
+}
+
+.match-home {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.match-away {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.match-away__img,
+.match-home__img {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+}
+
+.match-away__img img {
+    filter: grayscale(100%) contrast(200%);
+}
+
+.match-home__img img {
+    filter: grayscale(100%) contrast(200%);
+    transition: filter .6s ease-in-out;
+}
+
+.match__score {
+    display: flex;
+    gap: 10px;
+    font-size: 32px;
+}
+
+.match__info {
+    text-align: center;
+}
+
+.match-away__name {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.match-home__name {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.match__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.matches__filter {
+    position: absolute;
+    background-color: #D6FF41;
+    color: #000;
+    top: 109px;
+    left: -490px;
+    bottom: 0;
+    max-width: 250px;
+    width: 100%;
+    padding: 50px 30px;
+    padding-top: 15px;
+    overflow-y: auto;
+    visibility: hidden;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all .3s ease-in-out;
+}
+
+.matches__filter.active {
+    visibility: visible;
+    transform: translateX(500px);
+}
+
+.matches__container {
+    position: relative;
+}
+
+.filter__title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.match__time {
+    font-size: 14px;
+}
+
+.btn__filter path {
+    fill: #fff;
+    transition: fill .3s ease-in-out;
+}
+
+.btn__filter.active path {
+    fill: #D6FF41;
+}
+
+.sort__chapter {
+    margin: 0;
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 14px;
+}
+
+.sort__item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.round__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

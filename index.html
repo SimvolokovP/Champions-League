@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions League</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script src="js/matches.js" defer></script>
+    <script src="js/header.js" defer></script>
+    <script src="js/video.js" defer></script>
+    <script src="js/filter.js" defer></script>
+    <div class="wrapper">
+        <header id="header" class="header">
+            <div class="container header__container">
+                <a href="#" class="header__logo logo">CLfan</a>
+                <nav class="header__nav">
+                    <ul class="header__list list-reset">
+                        <li class="header__item">
+                            <a href="#" class="header__link">Home</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#" class="header__link">About</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#" class="header__link">Matches</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__auth">
+                    <button class="header__log btn">Login</button>
+                    <button class="header__sign btn">Sign Up</button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="hero">
+                <div class="container hero__container">
+                    <div class="hero__main">
+                        <h1 class="hero__title">Champions League</h1>
+                    </div>
+                    <div class="hero__bottom">
+                        <div class="hero__line"></div>
+                        <div class="video">
+                            <video id="video" src="video.mp4" poster="img/poster.jpg" preload="metadata" muted playsinline></video>
+                            <button id="videoBtn" class="btn-reset video__btn"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="matches">
+                <div class="container matches__container">
+                    <div class="matches__actions">
+                        <div class="matches__name">
+                            <h2 class="matches__title">List of matches</h2>
+                            <button class="btn-reset" onclick="getData(this)">
+                                <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.1055 8.93618C26.2692 0.683746 16.2374 -2.31714 8.42116 1.90032C7.80684 2.25178 7.53889 3.02227 7.87873 3.72518C8.21857 4.36051 8.9636 4.63762 9.64327 4.28616C16.1721 0.771609 24.5047 3.27911 27.7266 10.119C32.0007 19.196 26.4849 26.1169 22.0147 28.6785C15.9303 32.1728 8.21203 29.8545 4.5261 23.9001L9.05509 24.8801C9.73477 25.022 10.4798 24.5962 10.617 23.8257C10.7543 23.1228 10.3426 22.3523 9.59753 22.2104L1.57212 20.5207C0.225836 20.3855 -0.061719 21.6426 0.0101698 22.0684L1.02968 30.4358C1.09504 31.1387 1.64401 31.6321 2.32368 31.6321C3.16021 31.6321 3.68304 30.7872 3.61768 30.0167L3.22556 26.6036C6.97685 31.3888 14.3553 35.471 23.3152 31.213C27.1123 29.1854 35.8304 21.2304 30.1055 8.93618Z" fill="#fff"/>
+                                </svg>
+                                    
+                            </button>
+                        </div>
+                            <button class="btn-reset btn__filter" onclick="openFilter(this)">
+                                <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.33185 8.16473C-1.44012 5.42688 0.931457 0.333344 5.97818 0.333344H26.9792C32.0258 0.333344 34.3976 5.42688 30.6255 8.16473L22.5811 14.0036C22.1905 14.2871 21.9671 14.6935 21.9671 15.1201V30.3396C21.9671 33.0014 18.0259 34.3344 15.7209 32.4523L12.0619 29.4645C11.3757 28.9041 10.9902 28.1441 10.9902 27.3518V15.1201C10.9902 14.6935 10.7668 14.2871 10.3762 14.0036L2.33185 8.16473ZM5.97818 3.32115C4.29595 3.32115 3.50541 5.019 4.76274 5.93161L12.8071 11.7705C13.9789 12.621 14.6492 13.84 14.6492 15.1201V27.3518L18.3082 30.3396V15.1201C18.3082 13.84 18.9785 12.621 20.1503 11.7705L28.1947 5.93161C29.4519 5.019 28.6614 3.32115 26.9792 3.32115H5.97818Z" fill="#fff"/>
+                                </svg>
+                            </button>
+                    </div>
+                    <div class="matches__filter" id="filterArea">
+                        <h3 class="filter__title">Sorting matches</h3>
+                        <ul class="sort list-reset">
+                            <li class="sort__item">
+                                <p class="sort__chapter">By round</p>
+                                <ul class="round__list list-reset">
+                                    <li class="round__item">
+                                        <button id="Preliminary Round" onclick="sortByRound(this)">Preliminary Round</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Qualifying Round" onclick="sortByRound(this)">Qualifying Round</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Group A" onclick="sortByRound(this)">Group A</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Group B" onclick="sortByRound(this)">Group B</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Group C" onclick="sortByRound(this)">Group C</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Group D" onclick="sortByRound(this)">Group D</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Group E" onclick="sortByRound(this)">Group E</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Group F" onclick="sortByRound(this)">Group F</button>
+                                    </li>
+                                    <li class="round__item">
+                                        <button id="Round of 16" onclick="sortByRound(this)">Round of 16</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sort__item">
+                                <p class="sort__chapter">By team</p>
+                                <input id="nameInput" type="text">
+                            </li>
+                            <li class="sort__item">
+                                <p class="sort__chapter">By date</p>
+                                <button class="sort__today" onclick="isToday(this)">Today</button>
+                                <button class="sort__week" onclick="isThisWeek(this)">This week</button>
+                            </li>
+                            <li class="sort__item">
+                                <p class="sort__chapter">Reset</p>
+                                <button class="sort__reset" onclick="resetFilters(this)">Reset filters</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="matches__list list-reset" id="matchesList">
+                        
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container footer__container">
+                <a href="#" class="footer__link">SIMV12</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

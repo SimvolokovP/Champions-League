@@ -1,0 +1,12 @@
+.footer {
+    background-color: #D6FF41;
+    padding: 10px 0;
+    color: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.footer__link {
+    font-size: 24px;
+    font-weight: 500;
+}
